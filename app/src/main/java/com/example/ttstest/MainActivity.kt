@@ -2,6 +2,7 @@ package com.example.ttstest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.core.view.size
 import com.example.ttstest.adapter.FragmentViewPagerAdapterFactory
 import com.example.ttstest.base.BaseActivity
@@ -13,7 +14,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    private val vm : MainActivityViewModel by activityViewmodel
+    private val vm: MainActivityViewModel by viewModels()
 
     @Inject
     lateinit var fragmentViewPagerAdapter: FragmentViewPagerAdapterFactory
@@ -29,7 +30,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             adapter = fragmentViewPagerAdapter.create(activity = this@MainActivity, size = 3) {
                 MainFragment.newInstance()
             }
-
         }
     }
 }

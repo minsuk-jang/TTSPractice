@@ -10,5 +10,11 @@ class MainActivityViewModel @Inject constructor(
     private val ttsManager: TTSManager
 ) : ViewModel() {
 
+    fun start(){
+        ttsManager.start()
+    }
 
+    fun stop(){
+        ttsManager.stop()
+    }
 }
