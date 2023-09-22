@@ -20,12 +20,16 @@ class TTSManager @Inject constructor(
         }
     }
 
-    fun start() {
-        module.speak("Test1", TextToSpeech.QUEUE_FLUSH, null, null)
+    fun start(text: String) {
+        module.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
     fun stop() {
         module.stop()
     }
 
+    fun release(){
+        module.stop()
+        module.shutdown()
+    }
 }

@@ -5,16 +5,21 @@ import com.example.ttstest.manager.TTSManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-class MainActivityViewModel @Inject constructor(
+class MainActivityViewModel (
     private val ttsManager: TTSManager
 ) : ViewModel() {
 
-    fun start(){
-        ttsManager.start()
+    fun start(text : String){
+        ttsManager.start(text = text)
     }
 
     fun stop(){
         ttsManager.stop()
+    }
+
+
+    override fun onCleared() {
+        super.onCleared()
+        ttsManager.release()
     }
 }

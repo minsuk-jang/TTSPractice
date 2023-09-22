@@ -29,6 +29,12 @@ class MainFragment : BaseFragment<FragmentMainBinding>(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
 
         bindText()
+        startTTS()
+    }
+
+    private fun startTTS() {
+        val position = arguments?.getInt("position", 0)
+        vm.start(text = "Position is $position Position is $position Position is $position Position is $position Position is $position Position is $position Position is $position")
     }
 
     private fun bindText() {
